@@ -19,43 +19,23 @@
 	<integer>1</integer>
 	<key>Nodes</key>
 	<array>
-		<string>icon.png</string>
 		<string>Info.plist:PackageType</string>
-		<string>Info.plist:IconFiles</string>
 		<string>TargetApp/put ipa or app here</string>
+		<string>main.m</string>
 	</array>
 	<key>Definitions</key>
 	<dict>
-		<key>icon.png</key>
-		<dict>
-			<key>TargetIndices</key>
-			<array/>
-			<key>Path</key>
-			<string>icon.png</string>
-		</dict>
-		<key>main.m:main</key>
-		<dict>
-			<key>Beginning</key>
-			<string>int main(int argc, const char * argv[]) {</string>
-			<key>End</key>
-			<string>}</string>
-			<key>Indent</key>
-			<integer>1</integer>
-		</dict>
 		<key>main.m</key>
 		<dict>
 			<key>SortOrder</key>
 			<integer>999</integer>
+			<key>Path</key>
+			<string>main.m</string>
 		</dict>
 		<key>Info.plist:PackageType</key>
 		<string>&lt;key&gt;CFBundlePackageType&lt;/key&gt;
 &lt;string&gt;APPL&lt;/string&gt;
 </string>
-		<key>Info.plist:IconFiles</key>
-		<string>&lt;key&gt;CFBundleIconFiles&lt;/key&gt;
-&lt;array&gt;
-&lt;string&gt;___PACKAGENAME___/icon.png&lt;/string&gt;
-&lt;/array&gt;</string>
 		<key>TargetApp/put ipa or app here</key>
 		<dict>
 			<key>TargetIndices</key>

@@ -90,10 +90,12 @@ function pack(){
 
 	TARGET_APP_PATH=$(find "${TARGET_APP_PUT_PATH}" -type d | grep "\.app$" | head -n 1)
 
+	# clean
+	rm -rf "${BUILD_APP_PATH}" || true
+	mkdir -p "${BUILD_APP_PATH}" || true
+
 	if [[ -f "${TARGET_APP_PUT_PATH}"/.current_put_app ]]; then
 		if [[ $(cat ${TARGET_APP_PUT_PATH}/.current_put_app) !=  "${TARGET_APP_PATH}" ]]; then
-			rm -rf "${BUILD_APP_PATH}" || true
-		 	mkdir -p "${BUILD_APP_PATH}" || true
 		 	rm -rf "${TARGET_APP_PUT_PATH}"/.current_put_app
 			echo "${TARGET_APP_PATH}" >> "${TARGET_APP_PUT_PATH}"/.current_put_app
 		fi
@@ -183,9 +185,9 @@ function pack(){
 		/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${ORIGIN_BUNDLE_ID}" "${TARGET_INFO_PLIST}"
 	fi
 
-	/usr/libexec/PlistBuddy -c "Delete :CFBundleIconFiles" "${TARGET_INFO_PLIST}"
-	/usr/libexec/PlistBuddy -c "Add :CFBundleIconFiles array" "${TARGET_INFO_PLIST}"
-	/usr/libexec/PlistBuddy -c "Add :CFBundleIconFiles: string ${TARGET_NAME}/icon.png" "${TARGET_INFO_PLIST}"
+	# /usr/libexec/PlistBuddy -c "Delete :CFBundleIconFiles" "${TARGET_INFO_PLIST}"
+	# /usr/libexec/PlistBuddy -c "Add :CFBundleIconFiles array" "${TARGET_INFO_PLIST}"
+	# /usr/libexec/PlistBuddy -c "Add :CFBundleIconFiles: string ${TARGET_NAME}/icon.png" "${TARGET_INFO_PLIST}"
 
 	cp -rf "${TARGET_INFO_PLIST}" "${BUILD_APP_PATH}/Info.plist"
 
